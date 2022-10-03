@@ -16,6 +16,9 @@ import {
   ShellBar,
   Table,
 } from '@ui5/webcomponents-react';
+import {InvoicesApi} from "./to/store/generated/modules/first-service/InvoicesApi";
+import {InvoicesRequestBuilder} from "./to/store/generated/modules/first-service";
+
 
 type LiveToolbarProps = {
   filterText: string;
@@ -60,27 +63,48 @@ const testOdata = () => {
   // const q = odata({ service: 'http://localhost:8010/proxy/' });
   // q.batch().get('Invoices');
   // q.send();
+  // OHandler aa = new OHandler();
+  const invoicesApi = new InvoicesApi();
+  const invoice = new InvoicesRequestBuilder(invoicesApi);
+  invoice.getAll();
+  //
+  // const oHandler = o('http://localhost:8010/proxy/');
+  // const myHeaders: HeadersInit = {
+  //   'Accept-Charset': 'utf-8',
+  //   'Accept-Encoding': 'gzip, deflate',
+  //   'Accept-Language': 'en-US',
+  //   'Cache-Control': 'no-cache',
+  //   'Content-Type': 'application/http',
+  //   'Content-Transfer-Encoding': 'binary',
+  //   Accept: 'application/json',
+  // };
+  // const url1: URL = new URL(
+  //   'Invoices?$skip=0&$top=100&$orderby=ShipperName%20asc',
+  //   'http://localhost:8010/proxy/'
+  // );
+  // oHandler.get('Invoices').batch();
+  //
+  // const oreq1: ORequest = new ORequest(url1, {
+  //   method: 'GET',
+  // });
+  // oreq1.url = url1;
+  // oHandler.request(oreq1);
+  // oHandler.request(oreq1);
+  // oHandler.batch();
+  // const oQuery: OdataQuery = {};
+  // oHandler.batch(oQuery);
   const calls = [
     {
       method: 'GET',
-      url: 'Invoices?$skip=0&$top=100&$orderby=ShipperName%20asc HTTP/1.1',
+      url: 'Invoices?$skip=0&$top=100&$orderby=ShipperName%20asc',
       data: 'sap-cancel-on-close: true',
     },
   ];
 
   // Can add your own headers. Authorization header will be override auth param. Accept and Content-type headers will be ignored.
-  const headers = {
-    'Accept-Charset': 'utf-8',
-    'Accept-Encoding': 'gzip, deflate',
-    'Accept-Language': 'en-US',
-    'Cache-Control': 'no-cache',
-    'Content-Type': 'application/http',
-    'Content-Transfer-Encoding': 'binary',
-  };
 
   const config = {
     url: `http://localhost:8010/proxy/$batch`,
-    headers,
     auth: '******', // base64 string for basic auth
     calls,
   };
