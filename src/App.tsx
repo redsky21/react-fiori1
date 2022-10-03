@@ -77,9 +77,10 @@ const testOdata = () => {
   };
   const url1: URL = new URL(
     'Invoices?$skip=0&$top=100&$orderby=ShipperName%20asc',
-    'http://localhost:3000/api/'
+    'https://services.odata.org/V2/Northwind/Northwind.svc/'
   );
-  oHandler.get('Invoices').batch();
+  // oHandler.get('Invoices').batch();
+
 
   const oreq1: ORequest = new ORequest(url1, {
     method: 'GET',

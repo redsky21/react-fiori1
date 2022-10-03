@@ -3,9 +3,10 @@ const {createProxyMiddleware} = require('http-proxy-middleware');
 module.exports = function (app) {
   app.use(
       createProxyMiddleware('/api', {
-        target: 'https://services.odata.org/V2/Northwind/Northwind.svc/Invoices/$batch',
+        target: 'https://services.odata.org/V2/Northwind/Northwind.svc/$batch',
         changeOrigin: true,
-        pathRewrite: {'^/api': ''}
+        secure: false
+        // pathRewrite: {'^/api': ''}
       })
   )
 };
