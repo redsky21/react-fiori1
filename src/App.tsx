@@ -13,8 +13,7 @@ import {
   Input,
   ShellBar,
 } from '@ui5/webcomponents-react';
-import { firstService } from '../src/to/store/generated/modules/first-service';
-
+import {o, ORequest} from 'odata';
 
 type LiveToolbarProps = {
   filterText: string;
@@ -54,8 +53,8 @@ const LiveToolbar: React.FC<LiveToolbarProps> = (props) => {
 };
 
 const testOdata = () => {
-  const { invoicesApi } = firstService();
-  invoicesApi.requestBuilder().getAll().addCustomQueryParameters({language:'en'});
+  // const { invoicesApi } = firstService();
+  // invoicesApi.requestBuilder().getAll().addCustomQueryParameters({language:'en'});
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   // const odata = require('odata-client');
   // const q = odata({ service: 'http://localhost:8010/proxy/' });
@@ -66,29 +65,29 @@ const testOdata = () => {
   // const invoice = new InvoicesRequestBuilder(invoicesApi);
   // invoice.getAll();
   //
-  // const oHandler = o('http://localhost:8010/proxy/');
-  // const myHeaders: HeadersInit = {
-  //   'Accept-Charset': 'utf-8',
-  //   'Accept-Encoding': 'gzip, deflate',
-  //   'Accept-Language': 'en-US',
-  //   'Cache-Control': 'no-cache',
-  //   'Content-Type': 'application/http',
-  //   'Content-Transfer-Encoding': 'binary',
-  //   Accept: 'application/json',
-  // };
-  // const url1: URL = new URL(
-  //   'Invoices?$skip=0&$top=100&$orderby=ShipperName%20asc',
-  //   'http://localhost:8010/proxy/'
-  // );
-  // oHandler.get('Invoices').batch();
-  //
-  // const oreq1: ORequest = new ORequest(url1, {
-  //   method: 'GET',
-  // });
-  // oreq1.url = url1;
-  // oHandler.request(oreq1);
-  // oHandler.request(oreq1);
-  // oHandler.batch();
+  const oHandler = o('http://localhost:3000/api/');
+  const myHeaders: HeadersInit = {
+    'Accept-Charset': 'utf-8',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'en-US',
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'application/http',
+    'Content-Transfer-Encoding': 'binary',
+    Accept: 'application/json',
+  };
+  const url1: URL = new URL(
+    'Invoices?$skip=0&$top=100&$orderby=ShipperName%20asc',
+    'http://localhost:3000/api/'
+  );
+  oHandler.get('Invoices').batch();
+
+  const oreq1: ORequest = new ORequest(url1, {
+    method: 'GET',
+  });
+  oreq1.url = url1;
+  oHandler.request(oreq1);
+  oHandler.request(oreq1);
+  oHandler.batch();
   // const oQuery: OdataQuery = {};
   // oHandler.batch(oQuery);
   const calls = [
