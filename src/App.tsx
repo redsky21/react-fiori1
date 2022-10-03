@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import '@ui5/webcomponents/dist/Assets';
 import '@ui5/webcomponents-react/dist/Assets';
@@ -11,13 +11,9 @@ import {
   FlexBoxDirection,
   FlexBoxJustifyContent,
   Input,
-  Page,
-  Panel,
   ShellBar,
-  Table,
 } from '@ui5/webcomponents-react';
-import {InvoicesApi} from "./to/store/generated/modules/first-service/InvoicesApi";
-import {InvoicesRequestBuilder} from "./to/store/generated/modules/first-service";
+import { firstService } from '../src/to/store/generated/modules/first-service';
 
 
 type LiveToolbarProps = {
@@ -58,15 +54,17 @@ const LiveToolbar: React.FC<LiveToolbarProps> = (props) => {
 };
 
 const testOdata = () => {
+  const { invoicesApi } = firstService();
+  invoicesApi.requestBuilder().getAll().addCustomQueryParameters({language:'en'});
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   // const odata = require('odata-client');
   // const q = odata({ service: 'http://localhost:8010/proxy/' });
   // q.batch().get('Invoices');
   // q.send();
   // OHandler aa = new OHandler();
-  const invoicesApi = new InvoicesApi();
-  const invoice = new InvoicesRequestBuilder(invoicesApi);
-  invoice.getAll();
+  // const invoicesApi = new InvoicesApi();
+  // const invoice = new InvoicesRequestBuilder(invoicesApi);
+  // invoice.getAll();
   //
   // const oHandler = o('http://localhost:8010/proxy/');
   // const myHeaders: HeadersInit = {
