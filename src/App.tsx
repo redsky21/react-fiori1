@@ -13,7 +13,7 @@ import {
   Input,
   ShellBar,
 } from '@ui5/webcomponents-react';
-import {o, ORequest} from 'odata';
+import {o, ORequest} from '@redsky21/odata';
 
 type LiveToolbarProps = {
   filterText: string;
@@ -52,7 +52,7 @@ const LiveToolbar: React.FC<LiveToolbarProps> = (props) => {
   );
 };
 
-const testOdata = () => {
+const testOdata =  () => {
   // const { invoicesApi } = firstService();
   // invoicesApi.requestBuilder().getAll().addCustomQueryParameters({language:'en'});
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -76,8 +76,8 @@ const testOdata = () => {
     Accept: 'application/json',
   };
   const url1: URL = new URL(
-    'Invoices?$skip=0&$top=100&$orderby=ShipperName%20asc',
-    'https://services.odata.org/V2/Northwind/Northwind.svc/'
+      'Invoices?$skip=0&$top=100&$orderby=ShipperName%20asc',
+      'https://services.odata.org/V2/Northwind/Northwind.svc/'
   );
   // oHandler.get('Invoices').batch();
 
@@ -88,7 +88,8 @@ const testOdata = () => {
   oreq1.url = url1;
   oHandler.request(oreq1);
   oHandler.request(oreq1);
-  oHandler.batch();
+    oHandler.batch().then((data) => console.log(data));
+  // console.log("data!!!!!!!!!!!!:::",data);
   // const oQuery: OdataQuery = {};
   // oHandler.batch(oQuery);
   const calls = [

@@ -1592,6 +1592,15 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@redsky21/odata@0.1.6":
+  version "0.1.6"
+  resolved "https://npm.pkg.github.com/download/@redsky21/odata/0.1.6/46241578e8fbfcf07085b7eb5d39d4a44d62a2ef#46241578e8fbfcf07085b7eb5d39d4a44d62a2ef"
+  integrity sha512-nPHEn3b5NpawH5KlDltxw0bGanCfqmlH7t3V5NwDJ0FP2oQUA5Xgi1tQPWAZNUpiWIFO+Txtp+6Gdb9XFn/PLg==
+  dependencies:
+    cross-fetch "^3.0.6"
+    tslib "^1.9.3"
+    universal-url "2.0.0"
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
   resolved "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz"
@@ -5294,18 +5303,7 @@ http-proxy-agent@^4.0.1:
     agent-base "6"
     debug "4"
 
-http-proxy-middleware@^2.0.3:
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/http-proxy-middleware/-/http-proxy-middleware-2.0.6.tgz"
-  integrity sha512-ya/UeJ6HVBYxrgYotAZo1KvPWlgB48kUJLDePFeneHsVujFaW5WNj2NgWCAE//B1Dl02BIfYlpNgBy8Kf8Rjmw==
-  dependencies:
-    "@types/http-proxy" "^1.17.8"
-    http-proxy "^1.18.1"
-    is-glob "^4.0.1"
-    is-plain-obj "^3.0.0"
-    micromatch "^4.0.2"
-
-http-proxy-middleware@^2.0.6:
+http-proxy-middleware@^2.0.3, http-proxy-middleware@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/http-proxy-middleware/-/http-proxy-middleware-2.0.6.tgz#e1a4dd6979572c7ab5a4e4b55095d1f32a74963f"
   integrity sha512-ya/UeJ6HVBYxrgYotAZo1KvPWlgB48kUJLDePFeneHsVujFaW5WNj2NgWCAE//B1Dl02BIfYlpNgBy8Kf8Rjmw==
@@ -7066,15 +7064,6 @@ obuf@^1.0.0, obuf@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/obuf/-/obuf-1.1.2.tgz"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
-
-odata@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/odata/-/odata-1.3.1.tgz"
-  integrity sha512-cLhLk4FGPmXtTgjaW79I+VlpBM2+8m3FILwRZyadw6vlJDs5RvujPV2c6iyx5otC/1+SjncqscuZfPKAqKCEmA==
-  dependencies:
-    cross-fetch "^3.0.6"
-    tslib "^1.9.3"
-    universal-url "2.0.0"
 
 on-finished@2.4.1:
   version "2.4.1"
